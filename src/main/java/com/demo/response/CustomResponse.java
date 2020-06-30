@@ -17,9 +17,10 @@ import org.springframework.context.annotation.Bean;
 @Data
 @ApiModel("状态信息")
 @AllArgsConstructor
-public class CustomResponse implements IResponse{
+public class CustomResponse implements IStatusCode{
     @ApiModelProperty("状态码")
     private int code;
     @ApiModelProperty("信息")
     private String message;
+
 }

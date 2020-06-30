@@ -23,11 +23,11 @@ public class BaseResponse {
     }
 
     public BaseResponse() {
-        this.code = CommonsResponseEnum.SUCCESS.getCode();
-        this.message = CommonsResponseEnum.SUCCESS.getMessage();
+        this.code = IStatusCode.CommonsResponseEnum.SUCCESS.getCode();
+        this.message = IStatusCode.CommonsResponseEnum.SUCCESS.getMessage();
     }
 
-    public BaseResponse(IResponse iResponse) {
+    public BaseResponse(IStatusCode iResponse) {
         this.code = iResponse.getCode();
         this.message = iResponse.getMessage();
     }

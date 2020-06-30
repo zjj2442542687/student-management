@@ -12,11 +12,12 @@ public class CommonsResponse<T> extends BaseResponse {
     private final T data;
 
     public CommonsResponse(T data) {
-        super(CommonsResponseEnum.SUCCESS);
+        super(IStatusCode.CommonsResponseEnum.SUCCESS);
         this.data = data;
+
     }
 
-    public CommonsResponse(IResponse iResponse, T data) {
+    public CommonsResponse(IStatusCode iResponse, T data) {
         super(iResponse);
         this.data = data;
     }

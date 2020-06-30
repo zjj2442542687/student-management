@@ -13,10 +13,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class User {
-    @ApiModelProperty("用户名")
+    @ApiModelProperty(value = "用户名", example = "张三", required = true, name = "userName")
     private String userName;
-    @ApiModelProperty("密码")
+    @ApiModelProperty(value = "密码", required = true, name = "password")
     private String password;
-    @ApiModelProperty("手机号")
+    @ApiModelProperty(value = "手机号", required = true, name = "phoneNumber")
     private String phoneNumber;
+
+//    public User(String userName, String password, String phoneNumber) {
+//        this.userName = userName;
+//        this.password = password;
+//        this.phoneNumber = phoneNumber;
+//    }
 }
