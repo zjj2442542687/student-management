@@ -35,7 +35,7 @@ public class SwaggerConfig {
         return new ApiInfo(
                 "我是标题",
                 "我是描述信息",
-                "6.6",
+                "1.0",
                 "urn:tos",
                 contact,
                 "Apache 2.0",

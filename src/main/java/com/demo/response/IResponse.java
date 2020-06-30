@@ -1,10 +1,7 @@
-package com.cuberxp.springmvcdemo5.commons.enums;
+package com.demo.response;
 
-/**
- * @author cuberxp
- * Create time 2020/5/26 19:03
- * @since 1.0.0
- */
+
+
 public interface IResponse {
     /**
      * 返回状态码
