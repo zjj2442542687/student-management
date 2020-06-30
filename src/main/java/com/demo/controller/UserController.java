@@ -23,7 +23,8 @@ public class UserController {
             @ApiResponse(code = 1000, message = "非HTTP状态码，返回值JSON code字段值，描述：成功"),
             @ApiResponse(code = 401, message = "非HTTP状态码，返回值JSON code字段值，描述：无token")
     })
-    public CommonsResponse<User> login(@ApiParam("手机号") String phoneNumber, @ApiParam("code")String code) {
+    public CommonsResponse<User> login(@ApiParam("手机号")@RequestParam("phoneNumber") String phoneNumber,
+                                       @ApiParam("code")@RequestParam("code")String code) {
         return new CommonsResponse<>(new User("张三", "123", "110"));
     }
 
