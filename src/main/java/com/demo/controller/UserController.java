@@ -2,14 +2,9 @@ package com.demo.controller;
 
 import com.demo.pojo.User;
 import com.demo.response.CommonsResponse;
-import com.demo.response.CommonsResponseEnum;
-import com.demo.response.CustomResponse;
 import com.demo.response.IStatusCode;
 import io.swagger.annotations.*;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
 
 @Api(value="用户controller",tags={"用户操作接口"})
 @RestController
