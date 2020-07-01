@@ -5,7 +5,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @ApiModel("用户")
@@ -13,16 +12,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class User {
+    @ApiModelProperty(value = "id", name = "id", hidden = true)
+    private Long id;
     @ApiModelProperty(value = "用户名", example = "张三", required = true, name = "userName")
     private String userName;
     @ApiModelProperty(value = "密码", required = true, name = "password")
     private String password;
     @ApiModelProperty(value = "手机号", required = true, name = "phoneNumber")
     private String phoneNumber;
+    @ApiModelProperty(value = "头像", name = "avatar", hidden = true)
+    private String avatar;
+    @ApiModelProperty(value = "昵称", name = "nickName", hidden = true)
+    private String nickName;
 
-//    public User(String userName, String password, String phoneNumber) {
-//        this.userName = userName;
-//        this.password = password;
-//        this.phoneNumber = phoneNumber;
-//    }
+    public User(String userName, String password, String phoneNumber) {
+        this.userName = userName;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+    }
 }

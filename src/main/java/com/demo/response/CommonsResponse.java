@@ -14,7 +14,6 @@ public class CommonsResponse<T> extends BaseResponse {
     public CommonsResponse(T data) {
         super(IStatusCode.CommonsResponseEnum.SUCCESS);
         this.data = data;
-
     }
 
     public CommonsResponse(IStatusCode iResponse, T data) {

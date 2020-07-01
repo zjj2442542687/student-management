@@ -1,6 +1,7 @@
 package com.demo.controller;
 
 import com.demo.pojo.User;
+import com.demo.response.BaseResponse;
 import com.demo.response.CommonsResponse;
 import com.demo.response.IStatusCode;
 import io.swagger.annotations.*;
@@ -46,11 +47,13 @@ public class UserController {
             @ApiResponse(code = IStatusCode.FAIL_CODE, message = IStatusCode.FAIL_MESSAGE),
             @ApiResponse(code = IStatusCode.NOT_AUTHORITY_CODE, message = IStatusCode.NOT_AUTHORITY_MESSAGE)
     })
-    public CommonsResponse<User> register(@ApiParam("用户名")@RequestParam("userName") String userName,
-                                               @ApiParam("密码")@RequestParam("password") String password) {
+    public CommonsResponse<User> register(/*@ApiParam("用户名")@RequestParam("userName") String userName,
+                                          @ApiParam("密码")@RequestParam("password") String password,*/
+                                          @ApiParam("用户信息") User user) {
 
         return new CommonsResponse<>(
-                new User(userName, password, "")
+                user
+//                new User(userName, password, "")
         );
     }
 
@@ -67,15 +70,21 @@ public class UserController {
         return name + "   " + id;
     }
 
-    @ApiOperation("查询测试")
-    @GetMapping("select")
-    //@ApiImplicitParam(name="name",value="用户名",dataType="String", paramType = "query")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name="name",value="用户名",dataType="String", paramType = "query",example="xingguo"),
-            @ApiImplicitParam(name="id",value="用户id",dataType="int", paramType = "query", example = "1")
-    })
-    public void select(@RequestParam("name")String name, @RequestParam("id")int id){
-        System.out.println(name);
-        System.out.println(id);
+//    @ApiOperation("查询测试")
+//    @GetMapping("/select")
+//    //@ApiImplicitParam(name="name",value="用户名",dataType="String", paramType = "query")
+//    @ApiImplicitParams({
+//            @ApiImplicitParam(name="name",value="用户名",dataType="String", paramType = "query",example="xingguo"),
+//            @ApiImplicitParam(name="id",value="用户id",dataType="int", paramType = "query", example = "1")
+//    })
+//    public void select(@RequestParam("name")String name, @RequestParam("id")int id){
+//        System.out.println(name);
+//        System.out.println(id);
+//    }
+
+    @ApiOperation(value = "获得验证码", notes = "验证码位6位整数")
+    @GetMapping("/sendCode")
+    public BaseResponse sendCode(@ApiParam("验证码")@RequestParam("name")String code){
+        return new BaseResponse();
     }
 }
