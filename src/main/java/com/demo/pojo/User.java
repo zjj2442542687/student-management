@@ -20,10 +20,6 @@ public class User {
     private String password;
     @ApiModelProperty(value = "手机号", required = true, name = "phoneNumber")
     private String phoneNumber;
-    @ApiModelProperty(value = "头像", name = "avatar", hidden = true)
-    private String avatar;
-    @ApiModelProperty(value = "昵称", name = "nickName", hidden = true)
-    private String nickName;
 
     public User(String userName, String password, String phoneNumber) {
         this.userName = userName;

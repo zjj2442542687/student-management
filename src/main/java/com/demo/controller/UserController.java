@@ -4,13 +4,18 @@ import com.demo.pojo.User;
 import com.demo.response.BaseResponse;
 import com.demo.response.CommonsResponse;
 import com.demo.response.IStatusCode;
+import com.demo.service.UserService;
 import io.swagger.annotations.*;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
 
 @Api(value="用户controller",tags={"用户操作接口"})
 @RestController
 @RequestMapping("/user")
 public class UserController {
+    @Resource
+    UserService userService;
 
     @ApiOperation(value = "短信登录", notes = "注意都不能为空")
     @PostMapping("/smsLogin")
@@ -50,11 +55,7 @@ public class UserController {
     public CommonsResponse<User> register(/*@ApiParam("用户名")@RequestParam("userName") String userName,
                                           @ApiParam("密码")@RequestParam("password") String password,*/
                                           @ApiParam("用户信息") User user) {
-
-        return new CommonsResponse<>(
-                user
-//                new User(userName, password, "")
-        );
+        return userService.insert(user);
     }
 
     @ApiOperation("测试的接口")
